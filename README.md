@@ -23,3 +23,5 @@ results, and come back with the highest-scoring word that does as its next
 guess.
 
 Repeat the process until you get a match!
+
+^Z
