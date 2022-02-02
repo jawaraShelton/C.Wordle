@@ -10,7 +10,7 @@ namespace C.Wordle
     {
         private Boolean flagged;
         private string mot;
-        private long score;
+        private float score;
 
         public Boolean Flagged {
             get { return flagged; }
@@ -19,7 +19,7 @@ namespace C.Wordle
         public string Mot {
             get { return mot; }
         }
-        public long Score {
+        public float Score {
             get { return score; }
         }
 
@@ -53,34 +53,34 @@ namespace C.Wordle
             {'Q', 112 }
         };
 
-        Dictionary<char, int[]> pos = new Dictionary<char, int[]>()
+        Dictionary<char, float[]> pos = new Dictionary<char, float[]>()
         {
-            {'A',new int[5]{2, 5, 4, 3, 1 } },
-            {'B',new int[5]{5, 2, 4, 3, 1 } },
-            {'C',new int[5]{5, 2, 3, 4, 1 } },
-            {'D',new int[5]{4, 1, 2, 3, 5 } },
-            {'E',new int[5]{1, 4, 2, 5, 3 } },
-            {'F',new int[5]{5, 1, 3, 4, 2 } },
-            {'G',new int[5]{5, 1, 3, 4, 2 } },
-            {'H',new int[5]{4, 5, 1, 2, 3 } },
-            {'I',new int[5]{1, 5, 4, 3, 2 } },
-            {'J',new int[5]{5, 1, 4, 3, 2 } },
-            {'K',new int[5]{4, 1, 3, 5, 2 } },
-            {'L',new int[5]{2, 3, 5, 4, 1 } },
-            {'M',new int[5]{5, 2, 4, 3, 1 } },
-            {'N',new int[5]{1, 2, 5, 4, 3 } },
-            {'O',new int[5]{1, 5, 4, 3, 2 } },
-            {'P',new int[5]{5, 2, 3, 4, 1 } },
-            {'Q',new int[5]{5, 4, 3, 1, 2 } },
-            {'R',new int[5]{1, 4, 5, 3, 2 } },
-            {'S',new int[5]{4, 1, 3, 2, 5 } },
-            {'T',new int[5]{4, 1, 2, 5, 3 } },
-            {'U',new int[5]{2, 5, 4, 3, 1 } },
-            {'V',new int[5]{5, 2, 4, 3, 1 } },
-            {'W',new int[5]{5, 3, 4, 2, 1 } },
-            {'X',new int[5]{2, 3, 5, 1, 4 } },
-            {'Y',new int[5]{4, 3, 2, 1, 5 } },
-            {'Z',new int[5]{3, 1, 5, 4, 2 } }
+            {'S', new float[5]{0.1206F, 0.0072F, 0.0411F, 0.0398F, 0.3051F } },
+			{'E', new float[5]{0.0234F, 0.1255F, 0.0680F, 0.1794F, 0.1173F } },
+			{'Y', new float[5]{0.0140F, 0.0209F, 0.0164F, 0.0083F, 0.1003F } },
+			{'D', new float[5]{0.0528F, 0.0065F, 0.0301F, 0.0363F, 0.0634F } },
+			{'T', new float[5]{0.0628F, 0.0184F, 0.0475F, 0.0692F, 0.0560F } },
+			{'A', new float[5]{0.0568F, 0.1745F, 0.0953F, 0.0828F, 0.0524F } },
+			{'R', new float[5]{0.0484F, 0.0725F, 0.0924F, 0.0554F, 0.0519F } },
+			{'N', new float[5]{0.0251F, 0.0266F, 0.0743F, 0.0607F, 0.0409F } },
+			{'L', new float[5]{0.0445F, 0.0539F, 0.0654F, 0.0594F, 0.0367F } },
+			{'O', new float[5]{0.0202F, 0.1616F, 0.0765F, 0.0538F, 0.0300F } },
+			{'H', new float[5]{0.0377F, 0.0421F, 0.0093F, 0.0181F, 0.0285F } },
+			{'I', new float[5]{0.0127F, 0.1066F, 0.0810F, 0.0678F, 0.0216F } },
+			{'K', new float[5]{0.0290F, 0.0073F, 0.0210F, 0.0388F, 0.0200F } },
+			{'M', new float[5]{0.0534F, 0.0145F, 0.0394F, 0.0310F, 0.0140F } },
+			{'P', new float[5]{0.0662F, 0.0178F, 0.0281F, 0.0322F, 0.0113F } },
+			{'G', new float[5]{0.0492F, 0.0059F, 0.0281F, 0.0326F, 0.0110F } },
+			{'C', new float[5]{0.0711F, 0.0136F, 0.0302F, 0.0317F, 0.0098F } },
+			{'F', new float[5]{0.0461F, 0.0019F, 0.0137F, 0.0180F, 0.0063F } },
+			{'X', new float[5]{0.0012F, 0.0044F, 0.0103F, 0.0009F, 0.0054F } },
+			{'U', new float[5]{0.0146F, 0.0915F, 0.0514F, 0.0309F, 0.0052F } },
+			{'W', new float[5]{0.0318F, 0.0126F, 0.0209F, 0.0099F, 0.0049F } },
+			{'B', new float[5]{0.0701F, 0.0062F, 0.0258F, 0.0187F, 0.0045F } },
+			{'Z', new float[5]{0.0081F, 0.0022F, 0.0109F, 0.0097F, 0.0025F } },
+			{'V', new float[5]{0.0187F, 0.0040F, 0.0185F, 0.0120F, 0.0003F } },
+			{'Q', new float[5]{0.0060F, 0.0012F, 0.0010F, 0.0002F, 0.0003F } },
+			{'J', new float[5]{0.0156F, 0.0008F, 0.0035F, 0.0022F, 0.0002F } }
         };      
 
         public Word(string w)
@@ -92,11 +92,8 @@ namespace C.Wordle
             for(int i=0; i<5; i++)
             {
                 char c = mot.Substring(i, 1).ToCharArray()[0];
-                if (t.IndexOf(c) < 0)
-                {
-                    score += freqs[c] + pos[c][i];
-                    t += c;
-                }
+                score += pos[c][i] + (t.IndexOf(c) < 0 ? freqs[c] : 0);
+                t += c;
             }
         }
 
