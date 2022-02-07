@@ -24,4 +24,10 @@ guess.
 
 Repeat the process until you get a match!
 
+NOTES:
+
+The AI isn't that user friendly, yet. Mistakes in user input will potentially lead
+to crashes. 
+
+The AI is set up to play a single game, then quit.
 ^Z

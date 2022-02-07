@@ -18,14 +18,17 @@ namespace C.Wordle
             {
 				//  display the current guess
 				Word wrd = new();
-
+				int c = 0;
 				foreach (Word w in WordleDict)
 					if(!w.Flagged)
+                    {
 						wrd = w.Score > wrd.Score ? w : wrd;
-				
+						c++;
+					}
+
 				string g = wrd.Mot;
 
-				Console.WriteLine("My Guess: {0} (SCORE = {1:0.0000})", wrd.Mot, wrd.Score);
+				Console.WriteLine("My Guess: {0} (SCORE = {1:0.0000}, REMAINING = {2:0})", wrd.Mot, wrd.Score, c);
 
 				//  prompt for the result
 				Console.Write("Result? >>>>>[ ");
